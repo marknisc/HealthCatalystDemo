@@ -1,9 +1,9 @@
 ﻿namespace HealthCatalyst.Interfaces.Models
 {
     /// <summary>
-    /// Definition of IPhone
+    /// Definition of IAndroid
     /// </summary>
-    public interface IPhone
+    public interface IAndroid
     {
         long Number { get; set; }
         int? PersonId { get; set; }

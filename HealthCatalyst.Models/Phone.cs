@@ -3,9 +3,9 @@
 namespace HealthCatalyst.Models
 {
     /// <summary>
-    /// Implementation of <see cref="IPhone"/>
+    /// Implementation of <see cref="IAndroid"/>
     /// </summary>
-    public class Phone : IPhone
+    public class Phone : IAndroid
     {
         public int PhoneId { get; set; }
         public int? PersonId { get; set; }
