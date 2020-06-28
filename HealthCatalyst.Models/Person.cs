@@ -1,12 +1,14 @@
 ﻿
+using HealthCatalyst.Interfaces.Models;
+
 using System.Collections.Generic;
 
 namespace HealthCatalyst.Models
 {
     /// <summary>
-    /// Implementation of Person
+    /// Implementation of <see cref="IPerson"/>
     /// </summary>
-    public class Person
+    public class Person : IPerson
     {
         public int PersonId { get; set; }
         public string GivenName { get; set; }
