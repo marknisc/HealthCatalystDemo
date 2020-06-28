@@ -13,9 +13,9 @@ namespace HealthCatalyst.Models
         public int PersonId { get; set; }
         public string GivenName { get; set; }
         public string Surname { get; set; }
-        public ICollection<Phone> Phones { get; set; }
-        public ICollection<Address> Addresses { get; set; }
-        public ICollection<Interest> Interests { get; set; }
+        public ICollection<IPhone> Phones { get; set; }
+        public ICollection<IAddress> Addresses { get; set; }
+        public ICollection<IInterest> Interests { get; set; }
         public byte[] Photo { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HealthCatalyst.Models;
+﻿using HealthCatalyst.Interfaces.Models;
+using HealthCatalyst.Models;
 
 using System;
 using System.Collections.Generic;
@@ -66,7 +67,7 @@ namespace HealthCatalyst.Data
                 addresses.Add(new Address()
                 {
                     AddressId = id++,
-                    EntityId = p.PersonId,
+                    PersonId = p.PersonId,
                     Line1 = GetRandomAddress(),
                     City = GetRandomCity(),
                     State = GetRandomState(),

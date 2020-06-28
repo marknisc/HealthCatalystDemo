@@ -1,4 +1,4 @@
-﻿namespace HealthCatalyst.Models
+﻿namespace HealthCatalyst.Interfaces.Models
 {
     public enum PhoneType
     {

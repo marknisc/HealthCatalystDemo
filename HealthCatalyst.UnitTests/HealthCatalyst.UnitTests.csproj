@@ -17,6 +17,7 @@
     <ProjectReference Include="..\HealthCatalyst.Data\HealthCatalyst.Data.csproj" />
     <ProjectReference Include="..\HealthCatalyst.Interfaces\HealthCatalyst.Interfaces.csproj" />
     <ProjectReference Include="..\HealthCatalyst.Models\HealthCatalyst.Models.csproj" />
+    <ProjectReference Include="..\HealthCatalyst.Services\HealthCatalyst.Services.csproj" />
   </ItemGroup>
 
 </Project>

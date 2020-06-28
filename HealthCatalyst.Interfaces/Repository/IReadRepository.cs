@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using HealthCatalyst.Interfaces.Models;
+
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HealthCatalyst.Interfaces.Repository
@@ -8,6 +10,6 @@ namespace HealthCatalyst.Interfaces.Repository
     /// </summary>
     public interface IReadRepository
     {
-        Task<IQueryable<Person>> Search(string term)
+        Task<IQueryable<IPerson>> Search(string term);
     }
 }

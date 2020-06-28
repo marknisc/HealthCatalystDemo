@@ -1,11 +1,13 @@
-﻿namespace HealthCatalyst.Models
+﻿using HealthCatalyst.Interfaces.Models;
+
+namespace HealthCatalyst.Models
 {
     /// <summary>
     /// Implementation of Address
     /// 
     /// For simplicity of demo assume US address
     /// </summary>
-    public class Address
+    public class Address : IAddress
     {
         public int AddressId { get; set; }
         public int? PersonId { get; set; }
