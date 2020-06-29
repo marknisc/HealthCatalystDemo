@@ -1,0 +1,5 @@
+<div class="searchbar">
+    <span>Search:</span>
+    <input #searchTerm placeholder="ex: smith or john or main st" [(ngModel)]="term"/>
+    <button (click)="onSearch(searchTerm.value)">Search</button>
+</div>

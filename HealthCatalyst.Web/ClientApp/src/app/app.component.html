@@ -1,6 +1,21 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</body>
+<div class="main">
+<header>
+  <img class="logo" 
+    alt="Health Catalyst"
+    title="Health Catalyst"
+    src="https://downloads.healthcatalyst.com/wp-content/themes/health_catalyst_v4.1_timber/images/logotype/logotype.svg?version=b">
+    <span class="title">Candidate Demo</span>
+    <hr/>
+</header>
+
+<content>
+  <app-searchbar #searchbar></app-searchbar>
+  <hr/>
+  <app-searchresults searchTerm={{searchbar.term}}></app-searchresults>
+</content>
+
+<footer>
+  <hr/>
+  <p>&copy; 2019 Mark Nischalke</p>
+</footer>
+</div>
