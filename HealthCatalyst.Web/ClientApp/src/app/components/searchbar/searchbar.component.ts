@@ -13,7 +13,7 @@ export class SearchbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSearch(term: string){
-    term = "Hello,World"
+  onSearch(){
+    
   }
 }
