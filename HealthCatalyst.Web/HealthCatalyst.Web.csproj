@@ -27,7 +27,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\address.ts" />
+    <None Remove="ClientApp\src\app\models\interest.ts" />
+    <None Remove="ClientApp\src\app\models\person.ts" />
+    <None Remove="ClientApp\src\app\models\Phone.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\address.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\interest.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\person.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\phone.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
