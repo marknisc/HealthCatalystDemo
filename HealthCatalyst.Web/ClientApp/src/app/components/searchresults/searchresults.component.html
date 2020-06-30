@@ -1,7 +1,15 @@
 <div class="results">
   <div class="resultGrid" *ngFor="let person of searchResults">
-      <span>{{person.givenName}}</span>
-      <span>{{person.surname}}</span>
+      <span>{{person.toString()}}</span>
+      <div class="resultGridAddress" *ngFor="let addr of person.Addresses">
+        <p>{{addr.toString()}}</p>
+      </div>
+      <div class="resultGridPhone" *ngFor="let phone of person.Phones">
+        <p>{{phone.toString()}}</p>
+      </div>
+      <div class="resultGridInterest" *ngFor="let interest of person.Interests">
+        <span>{{interest}}</span>
+      </div>
   </div>
   <div *ngIf="noResults">
     <span>No results</span>

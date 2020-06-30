@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class InterfacesModule { }
 
-export * from './person'
-export * from './address'
-export * from './andriod';
-export * from './interest';
+export * from './iperson'
+export * from './iaddress'
+export * from './iandriod';
+export * from './iinterest';
