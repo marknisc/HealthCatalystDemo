@@ -13,7 +13,7 @@ namespace HealthCatalyst.UnitTests
         [Fact]
         public void SearchService_SearchTerm()
         {
-            var repo = new ReadRepositoy(Logger);
+            var repo = new ReadRepository(Logger);
             var sut = new SearchService(repo, Logger);
 
             var results = sut.Search("walnut");

@@ -14,7 +14,7 @@ namespace HealthCatalyst.Services
     /// <summary>
     /// Implementation of <see cref="IReadRepository"/>
     /// </summary>
-    public class ReadRepositoy : IReadRepository
+    public class ReadRepository : IReadRepository
     {
         private readonly ILogger _logger;
         SearchContext _searchCtx = new SearchContext();
@@ -23,37 +23,40 @@ namespace HealthCatalyst.Services
         /// Constructor
         /// </summary>
         /// <param name="logger">Implementation of <see cref="ILogger"/></param>
-        public ReadRepositoy(ILogger logger)
+        public ReadRepository(ILogger logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <inheritdoc/>
         public async Task<IQueryable<IPerson>> Search(string term)
         {
-            // Search for given name, surname and address line1 matches
+            IQueryable<IPerson> query = null;
 
-            // Linq does translate StringComparision, so make term uppercase
+            // Linq doesn't translate StringComparision, so make term uppercase here
             var upperTerm = term.ToUpper();
 
-            try
+            await Task.Run(() =>
             {
-                var result1 = _searchCtx.Persons
-                    // For simplicity of demo eagerly load navigation properties
-                    // a more robust implementation would possibly use lazy loading
-                    .Include("Phones")
-                    .Include("Interests")
-                    .Include("Addresses")
-                    .Where(p => p.GivenName.ToUpper().Contains(upperTerm)
-                    || p.Surname.ToUpper().Contains(upperTerm)
-                    || p.Addresses.Any(a => a.Line1.ToUpper().Contains(upperTerm)));
+                try
+                {
+                    query = _searchCtx.Persons
+                        // For simplicity of demo eagerly load navigation properties
+                        // a more robust implementation would possibly use lazy loading
+                        .Include("Phones")
+                        .Include("Interests")
+                        .Include("Addresses")
+                        .Where(p => p.GivenName.ToUpper().Contains(upperTerm)
+                        || p.Surname.ToUpper().Contains(upperTerm)
+                        || p.Addresses.Any(a => a.Line1.ToUpper().Contains(upperTerm)));
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex.Message, ex);
+                }
+            });
 
-                return result1;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message, ex);
-                return null;
-            }
+            return query;
         }
     }
 }
