@@ -1,6 +1,14 @@
-<div *ngFor="let person of searchResults">
-    <span>{{person.givenName}}</span>
-    <span>{{person.surname}}</span>
+<div class="results">
+  <div class="resultGrid" *ngFor="let person of searchResults">
+      <span>{{person.givenName}}</span>
+      <span>{{person.surname}}</span>
+  </div>
+  <div *ngIf="noResults">
+    <span>No results</span>
+  </div>
+  <div *ngIf="isLoading">
+    <img src="../../../assets/progress_bar.gif" />
+  </div>
 </div>
 
 

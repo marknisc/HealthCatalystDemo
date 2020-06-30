@@ -11,14 +11,23 @@ export class SearchResultsComponent implements OnInit {
 
   @Input() searchTerm: string;
   searchResults: Person[];
+  isLoading: boolean = false;
+  noResults: boolean = false;
 
-  constructor(private searchSvc: SearchService) { }
+  constructor(private searchSvc: SearchService) { 
+  }
 
   ngOnInit(): void {
-    this.searchSvc.searchResults().subscribe(p => {
+    this.searchSvc.searchResults().subscribe(
+      p => {
       this.searchResults = p;
+      this.noResults = (this.searchResults.length == 0);
+      this.isLoading = false;
     },
-    e => console.log(e));
+    e => console.log(e)
+    );
+
+    this.searchSvc.isSearching.subscribe(p => this.isLoading = p);
   }
 
 }
