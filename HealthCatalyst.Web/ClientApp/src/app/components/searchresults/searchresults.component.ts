@@ -15,7 +15,10 @@ export class SearchResultsComponent implements OnInit {
   constructor(private searchSvc: SearchService) { }
 
   ngOnInit(): void {
-    this.searchResults = this.searchSvc.search("");
+    this.searchSvc.searchResults().subscribe(p => {
+      this.searchResults = p;
+    },
+    e => console.log(e));
   }
 
 }
