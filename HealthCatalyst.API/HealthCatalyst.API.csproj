@@ -26,5 +26,9 @@
     <ProjectReference Include="..\HealthCatalyst.Services\HealthCatalyst.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+
 
 </Project>
