@@ -1,9 +1,11 @@
-﻿namespace HealthCatalyst.Models
+﻿using HealthCatalyst.Interfaces.Models;
+
+namespace HealthCatalyst.Models
 {
     /// <summary>
-    /// Implementation of Interest
+    /// Implementation of <see cref="IInterest"/>
     /// </summary>
-    public class Interest
+    public class Interest : IInterest
     {
         public int InterestId { get; set; }
         public int? PersonId { get; set; }

@@ -2,10 +2,14 @@
 
 using Microsoft.EntityFrameworkCore;
 
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace HealthCatalyst.Data
 {
     /// <summary>
-    /// Implementation of data contexxt for search application
+    /// Implementation of data context for search application
     /// </summary>
     public class SearchContext : DbContext
     {
@@ -22,6 +26,22 @@ namespace HealthCatalyst.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Person>()
+                .HasMany(_ => (ICollection<Phone>)_.Phones)
+                .WithOne()
+                .HasForeignKey(_ => _.PersonId);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(_ => (ICollection<Address>)_.Addresses)
+                .WithOne()
+                .HasForeignKey(_ => _.PersonId);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(_ => (ICollection<Interest>)_.Interests)
+                .WithOne()
+                .HasForeignKey(_ => _.PersonId);
+
+
             var persons = DataSeeder.GeneratePersons();
 
             modelBuilder.Entity<Person>().HasData(persons);

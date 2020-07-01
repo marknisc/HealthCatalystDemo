@@ -1,7 +1,10 @@
-﻿using HealthCatalyst.Models;
+﻿using HealthCatalyst.Interfaces.Models;
+using HealthCatalyst.Models;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 
 namespace HealthCatalyst.Data
 {
@@ -25,7 +28,7 @@ namespace HealthCatalyst.Data
                     PersonId = x,
                     GivenName = GetRandomGivenName(),
                     Surname = GetRandomSurname(),
-                    Photo = null
+                    Photo = GetImage()
                 });
             }
 
@@ -66,7 +69,7 @@ namespace HealthCatalyst.Data
                 addresses.Add(new Address()
                 {
                     AddressId = id++,
-                    EntityId = p.PersonId,
+                    PersonId = p.PersonId,
                     Line1 = GetRandomAddress(),
                     City = GetRandomCity(),
                     State = GetRandomState(),
@@ -367,7 +370,6 @@ namespace HealthCatalyst.Data
             return $"{part1}-{part2}";
         }
 
-
         /// <summary>
         /// Return random interest
         /// </summary>
@@ -399,6 +401,16 @@ namespace HealthCatalyst.Data
 
             Random rnd = new Random();
             return interests[rnd.Next(0, interests.Count - 1)];
+        }
+
+        /// <summary>
+        /// Get default image
+        /// </summary>
+        /// <returns>byte[]</returns>
+        private static byte[] GetImage()
+        {
+            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            return File.ReadAllBytes($@"{path}\assets\person-generic.png");
         }
 
         #endregion

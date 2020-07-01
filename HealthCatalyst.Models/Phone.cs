@@ -1,9 +1,11 @@
-﻿namespace HealthCatalyst.Models
+﻿using HealthCatalyst.Interfaces.Models;
+
+namespace HealthCatalyst.Models
 {
     /// <summary>
-    /// Implementation of Phone
+    /// Implementation of <see cref="IAndroid"/>
     /// </summary>
-    public class Phone
+    public class Phone : IAndroid
     {
         public int PhoneId { get; set; }
         public int? PersonId { get; set; }

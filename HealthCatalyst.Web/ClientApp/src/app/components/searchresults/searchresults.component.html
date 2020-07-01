@@ -1,0 +1,36 @@
+<div class="results" *ngIf="results">
+  <div class="headerRow">
+    <div>Name</div>
+    <div>Address(es)</div>
+    <div>Phone Numbers</div>
+    <div>Interests</div>
+  </div>
+  <div class="resultGrid" *ngFor="let person of searchResults">
+    <div>
+      <img [src]=person.photoToSrc()>
+      <span>{{person.toString()}}</span>
+    </div>
+    <div>
+      <div *ngFor="let addr of person.addresses">
+      <div [innerHTML]=addr.toString()></div>
+    </div>
+    </div>
+    <div>
+      <div *ngFor="let phone of person.phones">
+        <div>{{phone.toString()}}</div>
+      </div>
+    </div>
+    <div >
+      <div  *ngFor="let interest of person.interests">
+      <span>{{interest.description}}</span>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="noResults" *ngIf="noResults">
+  <span>No results</span>
+</div>
+<div class="loading" *ngIf="isLoading">
+  <img src="../../../assets/progress_bar.gif" />
+</div>
+
