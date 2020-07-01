@@ -1,8 +1,8 @@
 export interface IAndriod {
-  PhoneId: number;
-  PersonId: number;
-  Number: number;
-  PhoneType: PhoneType;
+  phoneId: number;
+  personId: number;
+  number: number;
+  type: PhoneType;
 }
 
 export enum PhoneType {

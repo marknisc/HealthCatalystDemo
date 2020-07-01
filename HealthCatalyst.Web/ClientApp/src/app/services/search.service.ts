@@ -1,7 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { IPerson, PhoneType } from '../interfaces/interfaces.module';
 import { Observable, ReplaySubject, Subject, pipe, of } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators'
+import { tap, catchError, map } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { IAppConfig } from '../interfaces/config';
@@ -26,18 +26,38 @@ export class SearchService {
 
   search(searchTerm: string){
     this.isSearching.emit(true);
-    let url = this.settings.api.baseUrl + "search";
+    let url = this.settings.api.baseUrl + `search?term=${searchTerm}`;
+
+    console.log("URL: " + url);
 
     this.http.get<IPerson[]>(url)
-    .pipe(
-      tap(result => { this.personsSubject.next(result) }),
-      catchError(err => { console.log(err); return of([]); })
-    );    
+    .subscribe(res => 
+      { 
+        let persons = new Array<Person>();
+
+        res.forEach(p => {
+          var person = new Person(p.personId, p.givenName, p.surname, new Array<Address>(), new Array<Phone>(), new Array<Interest>());
+
+          p.addresses.forEach(a => {
+            person.addresses.push(new Address(a.addressId, a.personId, a.line1, a.line2, a.city, a.state, a.postalCode))
+          });
+
+          p.phones.forEach(p =>{ 
+            person.phones.push(new Phone(p.phoneId, p.personId, p.number, p.type));
+          });
+
+          p.interests.forEach(i => {
+            person.interests.push(new Interest(i.interestId, i.personId, i.description));
+          });
+          persons.push(person);
+        });
+        this.personsSubject.next(persons);
+      });
 
     this.isSearching.emit(false); 
   }
 
-  searchResults() : Observable<IPerson[]>{
+  searchResults() : Observable<Person[]>{
     return this.personsSubject.asObservable();
   }
 }

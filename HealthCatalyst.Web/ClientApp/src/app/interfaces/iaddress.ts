@@ -1,9 +1,9 @@
 export interface IAddress {
-  AddressId: number;
-  PersonId: number;
-  Line1: string;
-  Line2: string;
-  City: string;
-  State: string;
-  PostalCode: string;
+  addressId: number;
+  personId: number;
+  line1: string;
+  line2: string;
+  city: string;
+  state: string;
+  postalCode: string;
 }

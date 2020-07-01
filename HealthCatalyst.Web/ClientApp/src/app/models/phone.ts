@@ -1,13 +1,20 @@
 import { IAndriod, PhoneType } from '../interfaces/iandriod'
 
 export class Phone implements IAndriod {
-    PhoneId: number;
-    PersonId: number;
-    Number: number;
-  PhoneType: PhoneType;
+    constructor(phoneId: number, personId: number, number: number, type: PhoneType){
+      this.phoneId = phoneId;
+      this.personId = personId;
+      this.number = number;
+      this.type = type;
+    }
+
+    phoneId: number;
+    personId: number;
+    number: number;
+    type: PhoneType;
 
   toString(): string {
-    let numstr = this.Number.toString();
-    return `${PhoneType[this.PhoneType]}: (${numstr.substring(0,3)})${numstr.substring(2,5)}-${numstr.substring(6)}`;
+    let numstr = this.number.toString();
+    return `${PhoneType[this.type]}: (${numstr.substring(0,3)})${numstr.substring(2,5)}-${numstr.substring(6)}`;
   }
 }

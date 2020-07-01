@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCatalyst.Services", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCatalyst.API", "HealthCatalyst.API\HealthCatalyst.API.csproj", "{C263E2B4-8575-444F-8D78-5F8B41AEE19E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCatalyst.Web", "HealthCatalyst.Web\HealthCatalyst.Web.csproj", "{29D155CD-C5A5-4AAF-A317-E28A3703BBB0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{C263E2B4-8575-444F-8D78-5F8B41AEE19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C263E2B4-8575-444F-8D78-5F8B41AEE19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C263E2B4-8575-444F-8D78-5F8B41AEE19E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29D155CD-C5A5-4AAF-A317-E28A3703BBB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29D155CD-C5A5-4AAF-A317-E28A3703BBB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29D155CD-C5A5-4AAF-A317-E28A3703BBB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29D155CD-C5A5-4AAF-A317-E28A3703BBB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

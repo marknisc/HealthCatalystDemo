@@ -1,5 +1,5 @@
 export interface IInterest {
-  InterestId: number;
-  PersonId: number;
-  Description: string;
+  interestId: number;
+  personId: number;
+  description: string;
 }

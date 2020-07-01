@@ -22,8 +22,8 @@ export class SearchResultsComponent implements OnInit {
     this.searchSvc.searchResults().subscribe(
       p => {
       this.searchResults = p;
-      this.noResults = false;// (this.searchResults.length == 0);
-      this.results = false; //(this.searchResults.length != 0);;
+      this.noResults = (this.searchResults.length == 0);
+      this.results = (this.searchResults.length != 0);;
     },
     e => console.log(e)
     );

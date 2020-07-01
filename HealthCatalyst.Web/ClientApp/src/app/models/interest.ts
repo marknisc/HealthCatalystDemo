@@ -1,7 +1,12 @@
 import { IInterest } from '../interfaces/iinterest';
 
 export class Interest implements IInterest {
-    InterestId: number;
-    PersonId: number;
-    Description: string;
+    constructor(interestId: number, personId: number, desc: string){
+        this.interestId = interestId;
+        this.personId = personId;
+        this.description = desc;
+    }
+    interestId: number;
+    personId: number;
+    description: string;
 }

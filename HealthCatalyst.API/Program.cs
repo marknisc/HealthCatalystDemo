@@ -22,6 +22,7 @@ namespace HealthCatalyst.API
                         ctx.AddDebug();
                         ctx.AddConsole();
                     });
+                    webBuilder.UseUrls("http://localhost:5200");
                     webBuilder.UseStartup<Startup>();
                 });
     }

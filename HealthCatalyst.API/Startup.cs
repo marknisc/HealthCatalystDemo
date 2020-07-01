@@ -14,6 +14,8 @@ namespace HealthCatalyst.API
 {
     public class Startup
     {
+        private readonly string corsPolicy = "LocalCorsPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,7 +27,15 @@ namespace HealthCatalyst.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            services.AddCors(options => 
+            {
+                options.AddPolicy(corsPolicy, builder =>
+                {
+                    // For local use and demo only. 
+                    // Not for production
+                    builder.AllowAnyOrigin();
+                });
+            });
             services.AddSingleton(typeof(ILogger<Startup>), typeof(Logger<Startup>));
             services.AddSingleton<IReadRepository>((c) =>
             {
@@ -51,7 +61,7 @@ namespace HealthCatalyst.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(corsPolicy);
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
