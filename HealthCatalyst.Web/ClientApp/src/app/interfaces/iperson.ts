@@ -6,8 +6,10 @@ export interface IPerson {
     personId: number;
     givenName: string;
     surname: string;
-    photo: any;
+    photo: [];
     addresses: IAddress[];
     phones: IAndriod[];
     interests: IInterest[];
+
+    photoToSrc(): string;
 }

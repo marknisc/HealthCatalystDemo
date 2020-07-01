@@ -36,7 +36,8 @@ export class SearchService {
         let persons = new Array<Person>();
 
         res.forEach(p => {
-          var person = new Person(p.personId, p.givenName, p.surname, new Array<Address>(), new Array<Phone>(), new Array<Interest>());
+          var person = new Person(p.personId, p.givenName, p.surname, 
+            new Array<Address>(), new Array<Phone>(), new Array<Interest>(), p.photo);
 
           p.addresses.forEach(a => {
             person.addresses.push(new Address(a.addressId, a.personId, a.line1, a.line2, a.city, a.state, a.postalCode))

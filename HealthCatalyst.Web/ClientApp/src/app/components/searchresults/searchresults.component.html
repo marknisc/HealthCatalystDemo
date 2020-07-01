@@ -7,6 +7,7 @@
   </div>
   <div class="resultGrid" *ngFor="let person of searchResults">
     <div>
+      <img [src]=person.photoToSrc()>
       <span>{{person.toString()}}</span>
     </div>
     <div>
