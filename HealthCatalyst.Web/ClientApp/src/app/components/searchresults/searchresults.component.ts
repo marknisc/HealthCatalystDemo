@@ -12,6 +12,7 @@ export class SearchResultsComponent implements OnInit {
   @Input() searchTerm: string;
   searchResults: Person[];
   isLoading: boolean = false;
+  results: boolean = false;
   noResults: boolean = false;
 
   constructor(private searchSvc: SearchService) { 
@@ -21,13 +22,15 @@ export class SearchResultsComponent implements OnInit {
     this.searchSvc.searchResults().subscribe(
       p => {
       this.searchResults = p;
-      this.noResults = (this.searchResults.length == 0);
-      this.isLoading = false;
+      this.noResults = false;// (this.searchResults.length == 0);
+      this.results = false; //(this.searchResults.length != 0);;
     },
     e => console.log(e)
     );
 
-    this.searchSvc.isSearching.subscribe(p => this.isLoading = p);
+    this.searchSvc.isSearching.subscribe(p => {
+      this.isLoading = p;
+    });
   }
 
 }

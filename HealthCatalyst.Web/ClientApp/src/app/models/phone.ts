@@ -8,6 +8,6 @@ export class Phone implements IAndriod {
 
   toString(): string {
     let numstr = this.Number.toString();
-    return `${this.PhoneType}: (${numstr.substring(0,3)})${numstr.substring(2,3)}-${numstr.substring(5)}`;
+    return `${PhoneType[this.PhoneType]}: (${numstr.substring(0,3)})${numstr.substring(2,5)}-${numstr.substring(6)}`;
   }
 }
